@@ -16,7 +16,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Conexion_Usuarios());
+            Application.Run(new Conexion_BD());
         }
     }
 }
