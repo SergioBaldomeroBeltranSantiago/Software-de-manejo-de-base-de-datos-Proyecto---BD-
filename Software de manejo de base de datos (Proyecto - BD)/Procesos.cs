@@ -13,19 +13,40 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
     public class Filtros_Entrada
     {
 
-        public static void soloLetras(EventArgs e)
+        public static void soloLetras(KeyPressEventArgs entrada)
         {
-            if (!Char.IsLetter(e.ToString()) && !Char.IsControl(e.ToString()))
+            if (!char.IsLetter(entrada.KeyChar) && !char.IsControl(entrada.KeyChar))
             {
-                e.Handled = true;
+                entrada.Handled = true;
             }
         }
 
-        public static void soloNumeros(EventArgs e)
+        public static void soloNumeros(KeyPressEventArgs entrada)
         {
-            if (!Char.IsNumber(e.ToString()) && !Char.IsControl(e.ToString()))
+            if (!char.IsNumber(entrada.KeyChar) && !char.IsControl(entrada.KeyChar))
             {
-                e.Handled = true;
+                entrada.Handled = true;
+            }
+        }
+
+        public static bool validarLongitudEntrada(string entrada, int longitud_deseada) {
+            return entrada.ToString().Length == longitud_deseada;
+        }
+    }
+
+    public class Botones
+    {
+        public static void cerrarAplicacion()
+        {
+            if (Application.MessageLoop)
+            {
+                // WinForms app
+                Application.Exit();
+            }
+            else
+            {
+                // Console app
+                Environment.Exit(0);
             }
         }
     }
