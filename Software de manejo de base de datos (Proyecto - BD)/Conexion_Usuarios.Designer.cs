@@ -1,7 +1,7 @@
 ﻿
 namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
-    partial class Conexion
+    partial class Conexion_Usuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -129,11 +129,11 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             this.lb_Contraseña_Retro.TabIndex = 8;
             this.lb_Contraseña_Retro.Text = "Ingrese su contraseña.";
             // 
-            // Conexion
+            // Conexion_Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 289);
+            this.ClientSize = new System.Drawing.Size(524, 246);
             this.Controls.Add(this.lb_Contraseña_Retro);
             this.Controls.Add(this.lb_Nombre_Usuario_Retro);
             this.Controls.Add(this.lb_useless_3);
@@ -143,7 +143,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             this.Controls.Add(this.txt_NombreUsuario);
             this.Controls.Add(this.btn_Conectar);
             this.Controls.Add(this.btn_Salir);
-            this.Name = "Conexion";
+            this.Name = "Conexion_Usuarios";
             this.Text = "Conexion";
             this.ResumeLayout(false);
             this.PerformLayout();

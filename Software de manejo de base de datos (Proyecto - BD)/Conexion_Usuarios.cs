@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
-    public partial class Conexion : Form
+    public partial class Conexion_Usuarios : Form
     {
 
         bool NombreUsuarioValido = false;
         bool ContraseñaValida = false;
 
-        public Conexion()
+        public Conexion_Usuarios()
         {
             InitializeComponent();
         }
