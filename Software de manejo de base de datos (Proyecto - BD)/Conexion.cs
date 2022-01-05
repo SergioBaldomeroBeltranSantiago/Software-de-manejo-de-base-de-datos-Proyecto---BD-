@@ -12,6 +12,10 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
     public partial class Conexion : Form
     {
+
+        bool NombreUsuarioValido = false;
+        bool ContraseñaValida = false;
+
         public Conexion()
         {
             InitializeComponent();
@@ -33,6 +37,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             {
                 lb_Nombre_Usuario_Retro.Text = "Ingrese un nombre de usuario valido.";
                 lb_Nombre_Usuario_Retro.ForeColor = Color.Black;
+                NombreUsuarioValido = false;
             }
             else
             {
@@ -40,13 +45,16 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
                 {
                     lb_Nombre_Usuario_Retro.Text = "Nombre de usuario valido.";
                     lb_Nombre_Usuario_Retro.ForeColor = Color.Green;
+                    NombreUsuarioValido = true;
                 }
                 else
                 {
                     lb_Nombre_Usuario_Retro.Text = "Nombre de usuario invalido.";
                     lb_Nombre_Usuario_Retro.ForeColor = Color.Red;
+                    NombreUsuarioValido = false;
                 }
             }
+            habilitarBotonConexion(ContraseñaValida, NombreUsuarioValido);
         }
 
         private void txt_Contraseña_KeyPress(object sender, KeyPressEventArgs e)
@@ -60,12 +68,19 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             {
                 lb_Contraseña_Retro.Text = "Ingrese su contraseña.";
                 lb_Contraseña_Retro.ForeColor = Color.Black;
+                ContraseñaValida = false;
             }
             else
             {
                 lb_Contraseña_Retro.Text = "Contraseña aceptada.";
                 lb_Contraseña_Retro.ForeColor = Color.Green;
+                ContraseñaValida = true;
             }
+            habilitarBotonConexion(ContraseñaValida, NombreUsuarioValido);
+        }
+
+        public void habilitarBotonConexion(bool ContraValida , bool NomUsValido) {
+            btn_Conectar.Enabled = ContraValida && NomUsValido;
         }
     }
 }
