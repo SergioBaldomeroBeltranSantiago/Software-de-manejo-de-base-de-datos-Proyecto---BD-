@@ -57,7 +57,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             this.btn_Conectar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Conectar.Location = new System.Drawing.Point(277, 206);
             this.btn_Conectar.Name = "btn_Conectar";
-            this.btn_Conectar.Size = new System.Drawing.Size(75, 28);
+            this.btn_Conectar.Size = new System.Drawing.Size(93, 28);
             this.btn_Conectar.TabIndex = 1;
             this.btn_Conectar.Text = "Conectar";
             this.btn_Conectar.UseVisualStyleBackColor = true;
