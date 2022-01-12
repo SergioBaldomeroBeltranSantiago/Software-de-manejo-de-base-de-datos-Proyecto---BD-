@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
     public partial class Conexion_BD : Form
     {
 
-        bool EstatusConexion = false;
+        public SqlConnection conectasion;
 
         public Conexion_BD()
         {
@@ -41,13 +42,18 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
         private void btn_ProbarConexion_Click(object sender, EventArgs e)
         {
             //EstatusConexion = procedimiento para conectar a la base de datos como testeo;
-            btn_Continuar.Enabled = EstatusConexion;
+            conectasion = Conexion.parametrizarConexion(txt_NombreServidor.Text, "ProyectoDB", "Tester", "Tester");
+            btn_Continuar.Enabled = Conexion.iniciarConexion(conectasion);
+            Conexion.cerrarConexion(conectasion);
+            
         }
 
         private void btn_Continuar_Click(object sender, EventArgs e)
         {
             Conexion_Usuarios sig_ventana = new Conexion_Usuarios();
             sig_ventana.Visible = true;
+            sig_ventana.NombreServidor = txt_NombreServidor.Text;
+            sig_ventana.ventana_anterior = this;
             this.Visible = false;
         }
     }

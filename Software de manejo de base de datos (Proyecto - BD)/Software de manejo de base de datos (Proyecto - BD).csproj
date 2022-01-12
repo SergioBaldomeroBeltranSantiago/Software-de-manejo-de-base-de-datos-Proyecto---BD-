@@ -59,6 +59,12 @@
     <Compile Include="Conexion_Usuarios.Designer.cs">
       <DependentUpon>Conexion_Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaz_Estudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz_Estudiante.Designer.cs">
+      <DependentUpon>Interfaz_Estudiante.cs</DependentUpon>
+    </Compile>
     <Compile Include="Procesos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +73,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Conexion_Usuarios.resx">
       <DependentUpon>Conexion_Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz_Estudiante.resx">
+      <DependentUpon>Interfaz_Estudiante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

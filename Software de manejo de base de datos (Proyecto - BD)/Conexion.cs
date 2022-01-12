@@ -4,20 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
+using System.Windows.Forms;
 
-namespace TallerBD.Conexion
+namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
     public class Conexion
     {
-        String bd = ""; //para almacenar los datos del form
-        String tabla = "";
-        public string Bd { get => bd; set => bd = value; }
-        public string Tabla { get => tabla; set => tabla = value; }
+        public SqlConnection conexion;
 
-        String iniciador = "Data Source=" + Bd + ";Initial Catalog=" + tabla + ";Integrated Security=True";
+        public static SqlConnection parametrizarConexion(string base_datos, string tabla_datos, string usuario, string contraseña) {
+            string iniciador = @"Data Source = " + base_datos + 
+                ";Initial Catalog = " + tabla_datos + 
+                "; Integrated Security = True; User ID = "+ usuario +
+                "; Password = " + contraseña;
+            return new SqlConnection(iniciador);
+        }
 
+        public static bool iniciarConexion(SqlConnection conexion) {
+            if (conexion != null && conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
 
-        SqlConnection conexion = new SqlConnection(Iniciador);
+        public static void cerrarConexion(SqlConnection conexion) {
+            if (conexion != null  && conexion.State == ConnectionState.Open) {
+                conexion.Close();
+            }
+        }
 
 
         public Conexion() {

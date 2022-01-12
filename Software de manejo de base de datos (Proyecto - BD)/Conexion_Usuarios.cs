@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
@@ -15,6 +16,10 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 
         bool NombreUsuarioValido = false;
         bool ContraseñaValida = false;
+        bool EstatusConexion = false;
+        SqlConnection conectate;
+        public string NombreServidor;
+        public Conexion_BD ventana_anterior;
 
         public Conexion_Usuarios()
         {
@@ -28,7 +33,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 
         private void txt_NombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Filtros_Entrada.soloNumeros(e);
+            Filtros_Entrada.soloLetras(e);
         }
 
         private void txt_NombreUsuario_TextChanged(object sender, EventArgs e)
@@ -41,25 +46,16 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             }
             else
             {
-                if (Filtros_Entrada.validarLongitudEntrada(txt_NombreUsuario.Text,8))
-                {
-                    lb_Nombre_Usuario_Retro.Text = "Nombre de usuario valido.";
-                    lb_Nombre_Usuario_Retro.ForeColor = Color.Green;
-                    NombreUsuarioValido = true;
-                }
-                else
-                {
-                    lb_Nombre_Usuario_Retro.Text = "Nombre de usuario invalido.";
-                    lb_Nombre_Usuario_Retro.ForeColor = Color.Red;
-                    NombreUsuarioValido = false;
-                }
+                lb_Nombre_Usuario_Retro.Text = "Nombre de usuario valido.";
+                lb_Nombre_Usuario_Retro.ForeColor = Color.Green;
+                NombreUsuarioValido = true;
             }
             habilitarBotonConexion(ContraseñaValida, NombreUsuarioValido);
         }
 
         private void txt_Contraseña_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Filtros_Entrada.soloNumeros(e);
+            Filtros_Entrada.soloLetras(e);
         }
 
         private void txt_Contraseña_TextChanged(object sender, EventArgs e)
@@ -79,8 +75,30 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             habilitarBotonConexion(ContraseñaValida, NombreUsuarioValido);
         }
 
-        public void habilitarBotonConexion(bool ContraValida , bool NomUsValido) {
+        public void habilitarBotonConexion(bool ContraValida, bool NomUsValido)
+        {
             btn_Conectar.Enabled = ContraValida && NomUsValido;
+        }
+
+        private void btn_Conectar_Click(object sender, EventArgs e)
+        {
+            conectate = Conexion.parametrizarConexion(NombreServidor, "ProyectoDB", txt_NombreUsuario.Text, txt_Contraseña.Text);
+            EstatusConexion = Conexion.iniciarConexion(conectate);
+            if (EstatusConexion)
+            {
+                Interfaz_Estudiante sig_ventana = new Interfaz_Estudiante();
+                sig_ventana.Visible = true;
+                sig_ventana.ventana_anterior = this;
+                this.Visible = false;
+                txt_NombreUsuario.Text = "";
+                txt_Contraseña.Text = "";
+            }
+        }
+
+        private void btn_Regresar_Click(object sender, EventArgs e)
+        {
+            ventana_anterior.Visible = true;
+            this.Dispose();
         }
     }
 }

@@ -38,14 +38,15 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             this.lb_useless_3 = new System.Windows.Forms.Label();
             this.lb_Nombre_Usuario_Retro = new System.Windows.Forms.Label();
             this.lb_Contraseña_Retro = new System.Windows.Forms.Label();
+            this.btn_Regresar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Salir
             // 
             this.btn_Salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Salir.Location = new System.Drawing.Point(91, 192);
+            this.btn_Salir.Location = new System.Drawing.Point(53, 192);
             this.btn_Salir.Name = "btn_Salir";
-            this.btn_Salir.Size = new System.Drawing.Size(75, 28);
+            this.btn_Salir.Size = new System.Drawing.Size(75, 38);
             this.btn_Salir.TabIndex = 0;
             this.btn_Salir.Text = "Cerrar";
             this.btn_Salir.UseVisualStyleBackColor = true;
@@ -55,12 +56,13 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             // 
             this.btn_Conectar.Enabled = false;
             this.btn_Conectar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Conectar.Location = new System.Drawing.Point(333, 192);
+            this.btn_Conectar.Location = new System.Drawing.Point(395, 192);
             this.btn_Conectar.Name = "btn_Conectar";
-            this.btn_Conectar.Size = new System.Drawing.Size(93, 28);
+            this.btn_Conectar.Size = new System.Drawing.Size(93, 38);
             this.btn_Conectar.TabIndex = 1;
             this.btn_Conectar.Text = "Conectar";
             this.btn_Conectar.UseVisualStyleBackColor = true;
+            this.btn_Conectar.Click += new System.EventHandler(this.btn_Conectar_Click);
             // 
             // txt_NombreUsuario
             // 
@@ -133,11 +135,23 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             this.lb_Contraseña_Retro.TabIndex = 8;
             this.lb_Contraseña_Retro.Text = "Ingrese su contraseña.";
             // 
+            // btn_Regresar
+            // 
+            this.btn_Regresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Regresar.Location = new System.Drawing.Point(233, 192);
+            this.btn_Regresar.Name = "btn_Regresar";
+            this.btn_Regresar.Size = new System.Drawing.Size(98, 38);
+            this.btn_Regresar.TabIndex = 9;
+            this.btn_Regresar.Text = "Regresar";
+            this.btn_Regresar.UseVisualStyleBackColor = true;
+            this.btn_Regresar.Click += new System.EventHandler(this.btn_Regresar_Click);
+            // 
             // Conexion_Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 246);
+            this.Controls.Add(this.btn_Regresar);
             this.Controls.Add(this.lb_Contraseña_Retro);
             this.Controls.Add(this.lb_Nombre_Usuario_Retro);
             this.Controls.Add(this.lb_useless_3);
@@ -165,6 +179,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
         private System.Windows.Forms.Label lb_useless_3;
         private System.Windows.Forms.Label lb_Nombre_Usuario_Retro;
         private System.Windows.Forms.Label lb_Contraseña_Retro;
+        private System.Windows.Forms.Button btn_Regresar;
     }
 }
 
