@@ -86,12 +86,22 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             EstatusConexion = Conexion.iniciarConexion(conectate);
             if (EstatusConexion)
             {
-                Interfaz_Estudiante sig_ventana = new Interfaz_Estudiante();
-                sig_ventana.Visible = true;
-                sig_ventana.ventana_anterior = this;
-                this.Visible = false;
+                switch (txt_NombreUsuario.Text)
+                {
+                    case "Estudiante":
+                        Interfaz_Estudiante sig_ventana = new Interfaz_Estudiante();
+                        sig_ventana.Visible = true;
+                        sig_ventana.ventana_anterior = this;
+                        break;
+                    case "Encargado":
+                        break;
+                    default:
+                        break;
+                }
                 txt_NombreUsuario.Text = "";
                 txt_Contraseña.Text = "";
+                this.Visible = false;
+                
             }
         }
 
