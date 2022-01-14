@@ -46,14 +46,14 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             this.gb_Solicitudes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_Solicitudes.Location = new System.Drawing.Point(12, 12);
             this.gb_Solicitudes.Name = "gb_Solicitudes";
-            this.gb_Solicitudes.Size = new System.Drawing.Size(361, 230);
+            this.gb_Solicitudes.Size = new System.Drawing.Size(486, 230);
             this.gb_Solicitudes.TabIndex = 0;
             this.gb_Solicitudes.TabStop = false;
             this.gb_Solicitudes.Text = "Solicitudes";
             // 
             // btn_SolicitarTramite
             // 
-            this.btn_SolicitarTramite.Location = new System.Drawing.Point(232, 174);
+            this.btn_SolicitarTramite.Location = new System.Drawing.Point(329, 174);
             this.btn_SolicitarTramite.Name = "btn_SolicitarTramite";
             this.btn_SolicitarTramite.Size = new System.Drawing.Size(94, 32);
             this.btn_SolicitarTramite.TabIndex = 3;
@@ -85,14 +85,15 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             this.cb_ListaTramites.FormattingEnabled = true;
             this.cb_ListaTramites.Location = new System.Drawing.Point(188, 68);
             this.cb_ListaTramites.Name = "cb_ListaTramites";
-            this.cb_ListaTramites.Size = new System.Drawing.Size(121, 28);
+            this.cb_ListaTramites.Size = new System.Drawing.Size(235, 28);
             this.cb_ListaTramites.TabIndex = 0;
+            this.cb_ListaTramites.SelectedIndexChanged += new System.EventHandler(this.cb_ListaTramites_SelectedIndexChanged);
             // 
             // CrearSolicitud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 252);
+            this.ClientSize = new System.Drawing.Size(508, 252);
             this.Controls.Add(this.gb_Solicitudes);
             this.Name = "CrearSolicitud";
             this.Text = "CrearSolicitud";

@@ -47,6 +47,9 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
                 CrearSolicitud sig_ventana = new CrearSolicitud();
                 sig_ventana.ventana_anterior = this;
                 sig_ventana.Visible = true;
+                sig_ventana.antenas = cablesito;
+                sig_ventana.esquincle = chamaco;
+                sig_ventana.cargarListaTramites();
                 this.Visible = false;
             }
             else {
@@ -72,6 +75,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
                     lb_FechaSolicitud.Text = valoresSolicitud[4].ToString();
                     lb_NombreEncargado.Text = valoresEncargado[1].ToString();
                     lb_EstatusTramite.Text = valoresSolicitud[5].ToString();
+                    TramiteExiste = true;
                 }
                 else
                 {
@@ -80,6 +84,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
                     lb_FechaSolicitud.Text = "2022/02/31";
                     lb_NombreEncargado.Text = "Mr. Smith";
                     lb_EstatusTramite.Text = "Mimido";
+                    TramiteExiste = false;
                 }
             }
         }
