@@ -13,37 +13,67 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
     {
         public SqlConnection conexion;
 
-        public static SqlConnection parametrizarConexion(string base_datos, string tabla_datos, string usuario, string contraseña) {
-            string iniciador = @"Data Source = " + base_datos + 
-                ";Initial Catalog = " + tabla_datos + 
-                "; Integrated Security = True; User ID = "+ usuario +
+        public static SqlConnection parametrizarConexion(string base_datos, string tabla_datos, string usuario, string contraseña)
+        {
+            string iniciador = @"Data Source = " + base_datos +
+                ";Initial Catalog = " + tabla_datos +
+                "; Integrated Security = True; User ID = " + usuario +
                 "; Password = " + contraseña;
             return new SqlConnection(iniciador);
         }
 
-        public static bool iniciarConexion(SqlConnection conexion) {
+        public static bool iniciarConexion(SqlConnection conexion)
+        {
             if (conexion != null && conexion.State == ConnectionState.Closed)
             {
                 conexion.Open();
                 return true;
             }
-            else {
+            else
+            {
                 return false;
             }
         }
 
-        public static void cerrarConexion(SqlConnection conexion) {
-            if (conexion != null  && conexion.State == ConnectionState.Open) {
+        public static void cerrarConexion(SqlConnection conexion)
+        {
+            if (conexion != null && conexion.State == ConnectionState.Open)
+            {
                 conexion.Close();
             }
         }
 
-
-        public Conexion() {
-            
+        public static SqlDataReader obtenerRegistros(SqlConnection conexion, string tabla, string campofiltro, string filtro, string campoorden, string orden)
+        {
+            iniciarConexion(conexion);
+            string query = "select * from " + tabla;
+            if (!filtro.Equals("")) query = query + "where " + campofiltro + " is like '%" + filtro + "'%";
+            if (!orden.Equals("")) query = query + " order by " + campoorden + " " + orden;
+            SqlCommand ElComando = new SqlCommand(query, conexion);
+            SqlDataReader salida = ElComando.ExecuteReader();
+            return salida;
         }
 
-        public List<String> obtenerColumnasClientes(){
+        public static List<string> obtenerValores(SqlConnection conexion, string tabla, string campofiltro, string filtro, string campoorden, string orden)
+        {
+            SqlDataReader valores = obtenerRegistros(conexion, tabla, campofiltro, filtro, campoorden, orden);
+            List<string> listavalores = new List<string>();
+            while (valores.Read())
+            {
+                listavalores.Add(valores.GetString(0));
+            }
+            cerrarConexion(conexion);
+            return listavalores;
+        }
+
+
+        public Conexion()
+        {
+
+        }
+
+        public List<String> obtenerColumnasClientes()
+        {
             var columnas = new List<String>();
             try
             {
@@ -63,40 +93,42 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 
                 throw;
             }
-            finally {
+            finally
+            {
                 conexion.Close();
             }
             return columnas;
         }
 
-                    /*************************************************************\
-                    *                                                           *
-                    *                    Metodos de clientes                    *
-                    *                                                           *
-                    \*************************************************************/
+        /*************************************************************\
+        *                                                           *
+        *                    Metodos de clientes                    *
+        *                                                           *
+        \*************************************************************/
 
-        public SqlDataReader obtenerClientes(String filtro, String orden){
+        public SqlDataReader obtenerClientes(String filtro, String orden)
+        {
             string query = "";
             string queryFiltro = "";
             string queryOrden = "";
             conexion.Open();
-            
+
             if (!orden.Equals(""))
             {
                 queryOrden = " order by " + orden + " asc";
                 if (!filtro.Equals(""))
                 {
                     queryFiltro = " WHERE " + orden + " like '%" + filtro + "%'";
-                    
+
 
                 }
             }
-            query = "SELECT * FROM CLIENTES"+queryFiltro+queryOrden;
+            query = "SELECT * FROM CLIENTES" + queryFiltro + queryOrden;
             SqlCommand comando = new SqlCommand(query, conexion);
             SqlDataReader registros = comando.ExecuteReader();
             return registros;
         }
-        
+
         // ------------------- Uso de procedimiento almacenado ---------------
         public String insertarCliente(String clave_cliente, String nombre, String direccion, String telefono)
         {
@@ -112,7 +144,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
                 while (registros.Read())
                 {
                     //Regresar mensaje del procedimiento almacenado
-                    respuesta =  registros.GetString(0);
+                    respuesta = registros.GetString(0);
                 }
                 return respuesta;
             }
@@ -133,7 +165,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             try
             {
                 conexion.Open();
-                string query = "select clave_cliente, nombre, direccion,telefono FROM CLIENTES WHERE clave_cliente = '"+clave+"'";
+                string query = "select clave_cliente, nombre, direccion,telefono FROM CLIENTES WHERE clave_cliente = '" + clave + "'";
                 SqlCommand comando = new SqlCommand(query, conexion);
                 SqlDataReader registros = comando.ExecuteReader();
 
@@ -158,7 +190,8 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             return cliente;
         }
 
-        public String modificarCliente(String nombre, String direccion, String telefono, String clave) {
+        public String modificarCliente(String nombre, String direccion, String telefono, String clave)
+        {
             try
             {
                 conexion.Open();
@@ -173,24 +206,27 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 
                 return ex.Message;
             }
-            finally {
+            finally
+            {
                 conexion.Close();
             }
         }
 
-        public String eliminarCliente(String clave_cliente) {
+        public String eliminarCliente(String clave_cliente)
+        {
             try
             {
-                
+
                 conexion.Open();
-                string query = "DELETE FROM CLIENTES WHERE clave_cliente = '"+clave_cliente+"'";
+                string query = "DELETE FROM CLIENTES WHERE clave_cliente = '" + clave_cliente + "'";
                 SqlCommand comando = new SqlCommand(query, conexion);
                 comando.ExecuteNonQuery();
                 return "El cliente se eliminò correctamente";
             }
             catch (SqlException ex)
             {
-                if (ex.Number == 547) {
+                if (ex.Number == 547)
+                {
                     return "No sé puede eliminar este usuario debido a que está relacionado";
                 }
                 return ex.Message;
@@ -373,7 +409,8 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
         }
 
         //En caso de que la conexion quede abierta cerramos la conexion
-        public void cerrarConexion() {
+        public void cerrarConexion()
+        {
             try
             {
                 conexion.Close();
@@ -397,18 +434,18 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 
         public string obtenerClaveDepto(String nombre)
         {
-            
+
             string clave = "";
             try
             {
-                
+
                 conexion.Open();
                 Console.WriteLine("aqui si llega");
                 string query = "SELECT depto FROM DEPARTAMENTO WHERE nombre = '" + nombre + "'";
                 Console.WriteLine("el query es: " + query);
                 SqlCommand comando = new SqlCommand(query, conexion);
                 SqlDataReader registros = comando.ExecuteReader();
-               
+
                 while (registros.Read())
                 {
                     clave = registros["depto"].ToString();
@@ -460,7 +497,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             try
             {
                 conexion.Open();
-                String query = "EXEC [INSERTAR_DEPTO_VALIDO] '" +clave_depto+ "','" + nombre + "','' ";
+                String query = "EXEC [INSERTAR_DEPTO_VALIDO] '" + clave_depto + "','" + nombre + "','' ";
                 SqlCommand comando = new SqlCommand(query, conexion);
                 Console.WriteLine(query);
                 SqlDataReader registros = comando.ExecuteReader();
@@ -544,7 +581,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             try
             {
                 conexion.Open();
-                var query = "UPDATE DEPARTAMENTO set nombre = '"+nombre+"' WHERE depto = '"+clave+"'";
+                var query = "UPDATE DEPARTAMENTO set nombre = '" + nombre + "' WHERE depto = '" + clave + "'";
                 SqlCommand comando = new SqlCommand(query, conexion);
                 comando.ExecuteNonQuery();
                 return "Departamento modificado correctamente";
@@ -621,7 +658,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             try
             {
                 conexion.Open();
-                String query = "EXEC [INSERTAR_PEDIDOS_VALIDO] '" + clave_cli + "','" + clave_art +"','" + fecha + "'," + cantidad + " ,'','', '' ";
+                String query = "EXEC [INSERTAR_PEDIDOS_VALIDO] '" + clave_cli + "','" + clave_art + "','" + fecha + "'," + cantidad + " ,'','', '' ";
                 SqlCommand comando = new SqlCommand(query, conexion);
                 Console.WriteLine(query);
                 SqlDataReader registros = comando.ExecuteReader();
