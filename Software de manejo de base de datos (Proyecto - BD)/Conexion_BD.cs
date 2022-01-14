@@ -19,6 +19,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
         public Conexion_BD()
         {
             InitializeComponent();
+            CenterToScreen();
         }
 
         private void txt_NombreServidor_TextChanged(object sender, EventArgs e)
