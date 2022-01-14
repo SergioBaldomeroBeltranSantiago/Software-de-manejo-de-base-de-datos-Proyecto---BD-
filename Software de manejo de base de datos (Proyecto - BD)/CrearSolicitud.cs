@@ -22,6 +22,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
         {
             InitializeComponent();
             btn_SolicitarTramite.Enabled = false;
+            CenterToScreen();
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
