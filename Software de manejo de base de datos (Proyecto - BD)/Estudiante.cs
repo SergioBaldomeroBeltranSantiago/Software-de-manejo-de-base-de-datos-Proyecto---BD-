@@ -8,14 +8,14 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
     public class Estudiante
     {
-        private string NumeroControl { get; set; }
-        private string Nombre { get; set; }
-        private string FechaNacimiento { get; set; }
-        private string FechaIngreso { get; set; }
-        private decimal Promedio { get; set; }
-        private string CodigoCarrera { get; set; }
-        private int CreditosAcreditados { get; set; }
-        private int CreditosComplementarios { get; set; }
+        public string NumeroControl { get; set; }
+        public string Nombre { get; set; }
+        public string FechaNacimiento { get; set; }
+        public string FechaIngreso { get; set; }
+        public decimal Promedio { get; set; }
+        public string CodigoCarrera { get; set; }
+        public int CreditosAcreditados { get; set; }
+        public int CreditosComplementarios { get; set; }
 
         public Estudiante(string numeroControl, string nombre, string fechaNacimiento, string fechaIngreso, decimal promedio, string codigoCarrera, int creditosAcreditados, int creditosComplementarios)
         {

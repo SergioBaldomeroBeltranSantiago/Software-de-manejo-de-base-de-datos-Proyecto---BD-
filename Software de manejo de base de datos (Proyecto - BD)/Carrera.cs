@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
-    class Carrera
+    public class Carrera
     {
-        private string CodigoCarrera { get; set; }
-        private string NombreCarrera { get; set; }
-        private int CreditosTotales { get; set; }
+        public string CodigoCarrera { get; set; }
+        public string NombreCarrera { get; set; }
+        public int CreditosTotales { get; set; }
 
         public Carrera(string codigoCarrera, string nombreCarrera, int creditosTotales)
         {

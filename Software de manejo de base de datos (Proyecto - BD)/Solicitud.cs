@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
-    class Solicitud
+    public class Solicitud
     {
-        private int NumeroSolicitud { get; set; }
-        private string ClaveEstudiante { get; set; }
-        private string ClaveEncargado { get; set; }
-        private string ClaveTramite { get; set; }
-        private string FechaSolicitud { get; set; }
-        private string Estatus { get; set; }
+        public int NumeroSolicitud { get; set; }
+        public string ClaveEstudiante { get; set; }
+        public string ClaveEncargado { get; set; }
+        public string ClaveTramite { get; set; }
+        public string FechaSolicitud { get; set; }
+        public string Estatus { get; set; }
 
         public Solicitud(int numeroSolicitud, string claveEstudiante, string claveEncargado, string claveTramite, string fechaSolicitud, string estatus)
         {

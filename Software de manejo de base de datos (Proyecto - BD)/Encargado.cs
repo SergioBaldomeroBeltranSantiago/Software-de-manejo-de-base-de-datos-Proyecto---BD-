@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
-    class Encargado
+    public class Encargado
     {
-        private string NumeroControl { get; set; }
-        private string Nombre { get; set; }
-        private string Correo { get; set; }
-        private string Telefono { get; set; }
+        public string NumeroControl { get; set; }
+        public string Nombre { get; set; }
+        public string Correo { get; set; }
+        public string Telefono { get; set; }
 
         public Encargado(string numeroControl, string nombre, string correo, string telefono)
         {

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
-    class Tramite
+    public class Tramite
     {
-        private string Codigo { get; set; }
-        private string Nombre { get; set; }
-        private string Descripcion { get; set; }
+        public string Codigo { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
 
         public Tramite(string codigo, string nombre, string descripcion)
         {
