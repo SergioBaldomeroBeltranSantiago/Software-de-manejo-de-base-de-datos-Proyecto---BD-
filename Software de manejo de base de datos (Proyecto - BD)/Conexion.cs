@@ -74,6 +74,15 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             return listavalores;
         }
 
+        public static void insertarValoresSolicitud(SqlConnection conexion, string ClaveAlumno, string ClaveEncargado, string ClaveTramite) {
+            string query = "insert into Solicitud (Clave_Al, Clave_En, Clave_Tr, Fec_Sol, Estatus) " +
+                " values ('" + ClaveAlumno + "', '" + ClaveEncargado + "', '" + ClaveTramite + "', getdate(), 'Pendiente')";
+            iniciarConexion(conexion);
+            SqlCommand elinsertador = new SqlCommand(query, conexion);
+            elinsertador.ExecuteReader();
+            cerrarConexion(conexion);
+        }
+
 
         public Conexion()
         {
