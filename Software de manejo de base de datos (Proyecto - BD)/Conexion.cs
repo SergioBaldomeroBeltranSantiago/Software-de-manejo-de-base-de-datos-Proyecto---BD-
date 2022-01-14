@@ -26,8 +26,14 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
         {
             if (conexion != null && conexion.State == ConnectionState.Closed)
             {
-                conexion.Open();
-                return true;
+                try
+                {
+                    conexion.Open();
+                    return true;
+                }
+                catch (Exception) {
+                    return false;
+                }
             }
             else
             {
@@ -47,7 +53,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
         {
             iniciarConexion(conexion);
             string query = "select * from " + tabla;
-            if (!filtro.Equals("")) query = query + "where " + campofiltro + " is like '%" + filtro + "'%";
+            if (!filtro.Equals("")) query = query + " where " + campofiltro + " = '" + filtro + "'";
             if (!orden.Equals("")) query = query + " order by " + campoorden + " " + orden;
             SqlCommand ElComando = new SqlCommand(query, conexion);
             SqlDataReader salida = ElComando.ExecuteReader();
@@ -60,7 +66,9 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             List<string> listavalores = new List<string>();
             while (valores.Read())
             {
-                listavalores.Add(valores.GetString(0));
+                for (int i = 0; i < valores.FieldCount; i++) {
+                    listavalores.Add(valores[i].ToString());
+                }
             }
             cerrarConexion(conexion);
             return listavalores;
