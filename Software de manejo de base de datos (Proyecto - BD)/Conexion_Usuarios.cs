@@ -24,6 +24,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
         public Conexion_Usuarios()
         {
             InitializeComponent();
+            CenterToScreen();
         }
 
         private void btn_Salir_Click(object sender, EventArgs e)
@@ -89,9 +90,11 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
                 switch (txt_NombreUsuario.Text)
                 {
                     case "Estudiante":
-                        Interfaz_Estudiante sig_ventana = new Interfaz_Estudiante();
-                        sig_ventana.Visible = true;
-                        sig_ventana.ventana_anterior = this;
+                        SeleccionarAlumno ventana_escoger = new SeleccionarAlumno();
+                        ventana_escoger.ventana_anterior = this;
+                        ventana_escoger.conectao = conectate;
+                        ventana_escoger.llenarListaAlumnos();
+                        ventana_escoger.Visible = true;
                         break;
                     case "Encargado":
                         break;

@@ -38,17 +38,17 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             this.btn_CerrarPrograma = new System.Windows.Forms.Button();
             this.btn_IniciarTramite = new System.Windows.Forms.Button();
             this.gb_InformacionTramite = new System.Windows.Forms.GroupBox();
-            this.gb_Controles = new System.Windows.Forms.GroupBox();
-            this.lb_useless_3 = new System.Windows.Forms.Label();
-            this.lb_NumeroSolicitud = new System.Windows.Forms.Label();
-            this.lb_useless_4 = new System.Windows.Forms.Label();
-            this.lb_NombreTramite = new System.Windows.Forms.Label();
-            this.lb_useless_5 = new System.Windows.Forms.Label();
-            this.lb_FechaSolicitud = new System.Windows.Forms.Label();
-            this.lb_useless_6 = new System.Windows.Forms.Label();
-            this.lb_NombreEncargado = new System.Windows.Forms.Label();
-            this.lb_useless_7 = new System.Windows.Forms.Label();
             this.lb_EstatusTramite = new System.Windows.Forms.Label();
+            this.lb_useless_7 = new System.Windows.Forms.Label();
+            this.lb_NombreEncargado = new System.Windows.Forms.Label();
+            this.lb_useless_6 = new System.Windows.Forms.Label();
+            this.lb_FechaSolicitud = new System.Windows.Forms.Label();
+            this.lb_useless_5 = new System.Windows.Forms.Label();
+            this.lb_NombreTramite = new System.Windows.Forms.Label();
+            this.lb_useless_4 = new System.Windows.Forms.Label();
+            this.lb_NumeroSolicitud = new System.Windows.Forms.Label();
+            this.lb_useless_3 = new System.Windows.Forms.Label();
+            this.gb_Controles = new System.Windows.Forms.GroupBox();
             this.gb_DatosEstudiante.SuspendLayout();
             this.gb_InformacionTramite.SuspendLayout();
             this.gb_Controles.SuspendLayout();
@@ -159,6 +159,91 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             this.gb_InformacionTramite.TabStop = false;
             this.gb_InformacionTramite.Text = "Información del Tramite";
             // 
+            // lb_EstatusTramite
+            // 
+            this.lb_EstatusTramite.AutoSize = true;
+            this.lb_EstatusTramite.Location = new System.Drawing.Point(301, 324);
+            this.lb_EstatusTramite.Name = "lb_EstatusTramite";
+            this.lb_EstatusTramite.Size = new System.Drawing.Size(0, 20);
+            this.lb_EstatusTramite.TabIndex = 9;
+            // 
+            // lb_useless_7
+            // 
+            this.lb_useless_7.AutoSize = true;
+            this.lb_useless_7.Location = new System.Drawing.Point(17, 324);
+            this.lb_useless_7.Name = "lb_useless_7";
+            this.lb_useless_7.Size = new System.Drawing.Size(278, 20);
+            this.lb_useless_7.TabIndex = 8;
+            this.lb_useless_7.Text = "Tu tramite se encuentra en estatus de";
+            // 
+            // lb_NombreEncargado
+            // 
+            this.lb_NombreEncargado.AutoSize = true;
+            this.lb_NombreEncargado.Location = new System.Drawing.Point(232, 231);
+            this.lb_NombreEncargado.Name = "lb_NombreEncargado";
+            this.lb_NombreEncargado.Size = new System.Drawing.Size(0, 20);
+            this.lb_NombreEncargado.TabIndex = 7;
+            // 
+            // lb_useless_6
+            // 
+            this.lb_useless_6.AutoSize = true;
+            this.lb_useless_6.Location = new System.Drawing.Point(35, 231);
+            this.lb_useless_6.Name = "lb_useless_6";
+            this.lb_useless_6.Size = new System.Drawing.Size(187, 20);
+            this.lb_useless_6.TabIndex = 6;
+            this.lb_useless_6.Text = "Te atiende el encargad@";
+            // 
+            // lb_FechaSolicitud
+            // 
+            this.lb_FechaSolicitud.AutoSize = true;
+            this.lb_FechaSolicitud.Location = new System.Drawing.Point(157, 134);
+            this.lb_FechaSolicitud.Name = "lb_FechaSolicitud";
+            this.lb_FechaSolicitud.Size = new System.Drawing.Size(0, 20);
+            this.lb_FechaSolicitud.TabIndex = 5;
+            // 
+            // lb_useless_5
+            // 
+            this.lb_useless_5.AutoSize = true;
+            this.lb_useless_5.Location = new System.Drawing.Point(35, 134);
+            this.lb_useless_5.Name = "lb_useless_5";
+            this.lb_useless_5.Size = new System.Drawing.Size(116, 20);
+            this.lb_useless_5.TabIndex = 4;
+            this.lb_useless_5.Text = "solicitado el dia";
+            // 
+            // lb_NombreTramite
+            // 
+            this.lb_NombreTramite.AutoSize = true;
+            this.lb_NombreTramite.Location = new System.Drawing.Point(173, 94);
+            this.lb_NombreTramite.Name = "lb_NombreTramite";
+            this.lb_NombreTramite.Size = new System.Drawing.Size(0, 20);
+            this.lb_NombreTramite.TabIndex = 3;
+            // 
+            // lb_useless_4
+            // 
+            this.lb_useless_4.AutoSize = true;
+            this.lb_useless_4.Location = new System.Drawing.Point(35, 94);
+            this.lb_useless_4.Name = "lb_useless_4";
+            this.lb_useless_4.Size = new System.Drawing.Size(132, 20);
+            this.lb_useless_4.TabIndex = 2;
+            this.lb_useless_4.Text = "para el tramite de";
+            // 
+            // lb_NumeroSolicitud
+            // 
+            this.lb_NumeroSolicitud.AutoSize = true;
+            this.lb_NumeroSolicitud.Location = new System.Drawing.Point(232, 53);
+            this.lb_NumeroSolicitud.Name = "lb_NumeroSolicitud";
+            this.lb_NumeroSolicitud.Size = new System.Drawing.Size(0, 20);
+            this.lb_NumeroSolicitud.TabIndex = 1;
+            // 
+            // lb_useless_3
+            // 
+            this.lb_useless_3.AutoSize = true;
+            this.lb_useless_3.Location = new System.Drawing.Point(35, 53);
+            this.lb_useless_3.Name = "lb_useless_3";
+            this.lb_useless_3.Size = new System.Drawing.Size(191, 20);
+            this.lb_useless_3.TabIndex = 0;
+            this.lb_useless_3.Text = "Tu solicitud es la número :";
+            // 
             // gb_Controles
             // 
             this.gb_Controles.Controls.Add(this.btn_CerrarSesion);
@@ -171,91 +256,6 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             this.gb_Controles.TabIndex = 10;
             this.gb_Controles.TabStop = false;
             this.gb_Controles.Text = "Controles";
-            // 
-            // lb_useless_3
-            // 
-            this.lb_useless_3.AutoSize = true;
-            this.lb_useless_3.Location = new System.Drawing.Point(35, 53);
-            this.lb_useless_3.Name = "lb_useless_3";
-            this.lb_useless_3.Size = new System.Drawing.Size(191, 20);
-            this.lb_useless_3.TabIndex = 0;
-            this.lb_useless_3.Text = "Tu solicitud es la número :";
-            // 
-            // lb_NumeroSolicitud
-            // 
-            this.lb_NumeroSolicitud.AutoSize = true;
-            this.lb_NumeroSolicitud.Location = new System.Drawing.Point(232, 53);
-            this.lb_NumeroSolicitud.Name = "lb_NumeroSolicitud";
-            this.lb_NumeroSolicitud.Size = new System.Drawing.Size(0, 20);
-            this.lb_NumeroSolicitud.TabIndex = 1;
-            // 
-            // lb_useless_4
-            // 
-            this.lb_useless_4.AutoSize = true;
-            this.lb_useless_4.Location = new System.Drawing.Point(35, 94);
-            this.lb_useless_4.Name = "lb_useless_4";
-            this.lb_useless_4.Size = new System.Drawing.Size(132, 20);
-            this.lb_useless_4.TabIndex = 2;
-            this.lb_useless_4.Text = "para el tramite de";
-            // 
-            // lb_NombreTramite
-            // 
-            this.lb_NombreTramite.AutoSize = true;
-            this.lb_NombreTramite.Location = new System.Drawing.Point(173, 94);
-            this.lb_NombreTramite.Name = "lb_NombreTramite";
-            this.lb_NombreTramite.Size = new System.Drawing.Size(0, 20);
-            this.lb_NombreTramite.TabIndex = 3;
-            // 
-            // lb_useless_5
-            // 
-            this.lb_useless_5.AutoSize = true;
-            this.lb_useless_5.Location = new System.Drawing.Point(35, 134);
-            this.lb_useless_5.Name = "lb_useless_5";
-            this.lb_useless_5.Size = new System.Drawing.Size(116, 20);
-            this.lb_useless_5.TabIndex = 4;
-            this.lb_useless_5.Text = "solicitado el dia";
-            // 
-            // lb_FechaSolicitud
-            // 
-            this.lb_FechaSolicitud.AutoSize = true;
-            this.lb_FechaSolicitud.Location = new System.Drawing.Point(157, 134);
-            this.lb_FechaSolicitud.Name = "lb_FechaSolicitud";
-            this.lb_FechaSolicitud.Size = new System.Drawing.Size(0, 20);
-            this.lb_FechaSolicitud.TabIndex = 5;
-            // 
-            // lb_useless_6
-            // 
-            this.lb_useless_6.AutoSize = true;
-            this.lb_useless_6.Location = new System.Drawing.Point(35, 231);
-            this.lb_useless_6.Name = "lb_useless_6";
-            this.lb_useless_6.Size = new System.Drawing.Size(187, 20);
-            this.lb_useless_6.TabIndex = 6;
-            this.lb_useless_6.Text = "Te atiende el encargad@";
-            // 
-            // lb_NombreEncargado
-            // 
-            this.lb_NombreEncargado.AutoSize = true;
-            this.lb_NombreEncargado.Location = new System.Drawing.Point(232, 231);
-            this.lb_NombreEncargado.Name = "lb_NombreEncargado";
-            this.lb_NombreEncargado.Size = new System.Drawing.Size(0, 20);
-            this.lb_NombreEncargado.TabIndex = 7;
-            // 
-            // lb_useless_7
-            // 
-            this.lb_useless_7.AutoSize = true;
-            this.lb_useless_7.Location = new System.Drawing.Point(17, 324);
-            this.lb_useless_7.Name = "lb_useless_7";
-            this.lb_useless_7.Size = new System.Drawing.Size(278, 20);
-            this.lb_useless_7.TabIndex = 8;
-            this.lb_useless_7.Text = "Tu tramite se encuentra en estatus de";
-            // 
-            // lb_EstatusTramite
-            // 
-            this.lb_EstatusTramite.AutoSize = true;
-            this.lb_EstatusTramite.Location = new System.Drawing.Point(301, 324);
-            this.lb_EstatusTramite.Name = "lb_EstatusTramite";
-            this.lb_EstatusTramite.Size = new System.Drawing.Size(0, 20);
-            this.lb_EstatusTramite.TabIndex = 9;
             // 
             // Interfaz_Estudiante
             // 
