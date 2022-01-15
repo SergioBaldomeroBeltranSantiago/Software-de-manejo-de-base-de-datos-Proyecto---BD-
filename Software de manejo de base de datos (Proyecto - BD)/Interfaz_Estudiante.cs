@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -16,7 +10,7 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
     {
 
         public Conexion_Usuarios ventana_anterior;
-        public SeleccionarAlumno ventana_escoger;
+        public SeleccionarUsuario ventana_escoger;
         bool TramiteExiste = false;
         public Estudiante chamaco;
         public Tramite solicitud;

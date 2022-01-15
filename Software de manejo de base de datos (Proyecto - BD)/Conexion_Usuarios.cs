@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -90,13 +84,20 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
                 switch (txt_NombreUsuario.Text)
                 {
                     case "Estudiante":
-                        SeleccionarAlumno ventana_escoger = new SeleccionarAlumno();
+                        SeleccionarUsuario ventana_escoger = new SeleccionarUsuario();
                         ventana_escoger.ventana_anterior = this;
                         ventana_escoger.conectao = conectate;
-                        ventana_escoger.llenarListaAlumnos();
+                        ventana_escoger.TipoUsuario = "Alumno";
+                        ventana_escoger.llenarListaUsuarios();
                         ventana_escoger.Visible = true;
                         break;
                     case "Encargado":
+                        SeleccionarUsuario ventana_escoger_e = new SeleccionarUsuario();
+                        ventana_escoger_e.ventana_anterior = this;
+                        ventana_escoger_e.conectao = conectate;
+                        ventana_escoger_e.TipoUsuario = "Encargado";
+                        ventana_escoger_e.llenarListaUsuarios();
+                        ventana_escoger_e.Visible = true;
                         break;
                     default:
                         break;
