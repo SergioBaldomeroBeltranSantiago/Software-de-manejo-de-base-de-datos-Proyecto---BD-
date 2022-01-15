@@ -83,6 +83,16 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             cerrarConexion(conexion);
         }
 
+        public static void actualizarValoresSolicitud(SqlConnection conexion, int NumeroSolicitud, string Cambio_Uno) {
+            iniciarConexion(conexion);
+            string query = "update Solicitud";
+            query += " set Estatus = '" + Cambio_Uno + "'";
+            query += " where Num_Sol = '" + NumeroSolicitud + "';";
+            SqlCommand elupdateador = new SqlCommand(query, conexion);
+            elupdateador.ExecuteReader();
+            cerrarConexion(conexion);
+        }
+
 
         public Conexion()
         {
