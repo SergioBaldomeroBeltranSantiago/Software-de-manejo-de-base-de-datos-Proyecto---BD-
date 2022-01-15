@@ -100,6 +100,10 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
                         ventana_escoger_e.Visible = true;
                         break;
                     default:
+                        Interfaz_Admin ventana_sig = new Interfaz_Admin();
+                        ventana_sig.red = conectate;
+                        ventana_sig.ventana_anterior = this;
+                        ventana_sig.Visible = true;
                         break;
                 }
                 txt_NombreUsuario.Text = "";

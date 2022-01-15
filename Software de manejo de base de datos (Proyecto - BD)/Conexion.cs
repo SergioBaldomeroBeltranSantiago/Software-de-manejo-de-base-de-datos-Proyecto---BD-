@@ -93,6 +93,75 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             cerrarConexion(conexion);
         }
 
+        public static List<string> obtenerColumnas(SqlConnection conexion, string tabla) {
+            List<string> salida = new List<string>();
+            iniciarConexion(conexion);
+            string query = "select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '" + tabla + "'";
+            SqlCommand elobtenedordecolumnas = new SqlCommand(query, conexion);
+            SqlDataReader columnastabla = elobtenedordecolumnas.ExecuteReader();
+            while (columnastabla.Read()) {
+                for (int i = 0; i < columnastabla.FieldCount; i++) {
+                    salida.Add(columnastabla[i].ToString());
+                }
+            }
+            cerrarConexion(conexion);
+            return salida;
+        }
+
+        public static void eliminarRegistro(SqlConnection conexion, string tabla, string campofiltro, string filtro) {
+            iniciarConexion(conexion);
+            string query = "delete from " + tabla + " where " + campofiltro + " = " + filtro;
+            SqlCommand elborrador = new SqlCommand(query, conexion);
+            elborrador.ExecuteReader();
+            cerrarConexion(conexion);
+        }
+
+        public static void actualizarRegistroUniversal(SqlConnection conexion, string tabla, List<string> camposfiltro, List<string> filtros) {
+            iniciarConexion(conexion);
+            string query = "update " + tabla;
+            if (camposfiltro.Count == 1)
+            {
+                query += " set " + camposfiltro[0].ToString() + " = '" + filtros[0].ToString() + "'";
+            }
+            else {
+                for (int i = 0; i < camposfiltro.Count; i++) {
+                    if (i == 0)
+                    {
+                        query += " set " + camposfiltro[i].ToString() + " = '" + filtros[i].ToString() + "' ";
+                    }
+                    else if (i == camposfiltro.Count - 1)
+                    {
+                        query += ", " + camposfiltro[i].ToString() + " = '" + filtros[i].ToString() + "'";
+                    }
+                    else {
+                        query += ", " + camposfiltro[i].ToString() + " ='" + filtros[i].ToString() + "'";
+                    }
+                }
+            }
+            query += " where " + camposfiltro[0].ToString() + " = '" + filtros[0].ToString() + "'";
+            SqlCommand elmodificadoruniversal = new SqlCommand(query, conexion);
+            elmodificadoruniversal.ExecuteReader();
+            cerrarConexion(conexion);
+        }
+
+        public static void insertarRegistroUniversal(SqlConnection conexion, string tabla, List<string> campos, List<string> valores) {
+            iniciarConexion(conexion);
+            string query = "insert into " + tabla + " (";
+            for (int i = 0; i < campos.Count; i++) {
+                query += campos[i].ToString();
+                if (i < campos.Count - 1) query += ", ";
+            }
+            query += ") values (";
+            for (int i = 0; i < valores.Count; i++)
+            {
+                query += "'" + valores[i].ToString() + "'";
+                if (i < valores.Count - 1) query += ", ";
+            }
+            query += ")";
+            SqlCommand elinsertadoruniversal = new SqlCommand(query, conexion);
+            elinsertadoruniversal.ExecuteReader();
+            cerrarConexion(conexion);
+        }
 
         public Conexion()
         {
