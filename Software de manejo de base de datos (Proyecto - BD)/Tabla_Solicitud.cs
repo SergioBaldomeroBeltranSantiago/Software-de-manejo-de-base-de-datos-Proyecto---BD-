@@ -8,12 +8,12 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
     public class Solicitud
     {
-        public int NumeroSolicitud { get; set; }
-        public string ClaveEstudiante { get; set; }
-        public string ClaveEncargado { get; set; }
-        public string ClaveTramite { get; set; }
-        public string FechaSolicitud { get; set; }
-        public string Estatus { get; set; }
+        private int NumeroSolicitud;
+        private string ClaveEstudiante;
+        private string ClaveEncargado;
+        private string ClaveTramite;
+        private string FechaSolicitud;
+        private string Estatus;
 
         public Solicitud(int numeroSolicitud, string claveEstudiante, string claveEncargado, string claveTramite, string fechaSolicitud, string estatus)
         {
@@ -25,8 +25,28 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             Estatus = estatus ?? throw new ArgumentNullException(nameof(estatus));
         }
 
-        public Solicitud()
-        {
+        private int getNumeroSolicitud(){
+            return this.NumeroSolicitud;
+        }
+
+        private string getClaveEstudiante(){
+            return this.ClaveEstudiante;
+        }
+
+        private string getClaveEncargado(){
+            return this.ClaveEncargado;
+        }
+
+        private string getClaveTramite(){
+            return this.ClaveTramite;
+        }
+
+        private string getFechaSolicitud(){
+            return this.FechaSolicitud;
+        }
+
+        private string getEstatus(){
+            return this.Estatus;
         }
     }
 }

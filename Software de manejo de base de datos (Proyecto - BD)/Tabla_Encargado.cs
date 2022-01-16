@@ -8,10 +8,10 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
     public class Encargado
     {
-        public string NumeroControl { get; set; }
-        public string Nombre { get; set; }
-        public string Correo { get; set; }
-        public string Telefono { get; set; }
+        private string NumeroControl;
+        private string Nombre;
+        private string Correo;
+        private string Telefono;
 
         public Encargado(string numeroControl, string nombre, string correo, string telefono)
         {
@@ -21,6 +21,20 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             Telefono = telefono ?? throw new ArgumentNullException(nameof(telefono));
         }
 
-        public Encargado() { }
+        private string getNUmeroControl(){
+            return this.NumeroControl;
+        }
+
+        private string getNombre(){
+            return this.Nombre;
+        }
+
+        private string getCorreo(){
+            return this.Correo;
+        }
+
+        private string getTelefono(){
+            return this.Telefono;
+        }
     }
 }

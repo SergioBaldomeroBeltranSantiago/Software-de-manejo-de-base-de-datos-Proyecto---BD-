@@ -8,10 +8,9 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
     public class Tramite
     {
-        public string Codigo { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
-
+        private string Codigo;
+        private string Nombre;
+        private string Descripcion;
         public Tramite(string codigo, string nombre, string descripcion)
         {
             Codigo = codigo ?? throw new ArgumentNullException(nameof(codigo));
@@ -19,8 +18,16 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             Descripcion = descripcion ?? throw new ArgumentNullException(nameof(descripcion));
         }
 
-        public Tramite()
-        {
+        private string getCodigo(){
+            return this.Codigo;
+        }
+
+        private string getNombre(){
+            return this.Nombre;
+        }
+
+        private string getDescripcion(){
+            return this.Descripcion;
         }
     }
 }

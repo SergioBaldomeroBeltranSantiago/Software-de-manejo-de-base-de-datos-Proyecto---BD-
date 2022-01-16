@@ -8,14 +8,14 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
     public class Estudiante
     {
-        public string NumeroControl { get; set; }
-        public string Nombre { get; set; }
-        public string FechaNacimiento { get; set; }
-        public string FechaIngreso { get; set; }
-        public decimal Promedio { get; set; }
-        public string CodigoCarrera { get; set; }
-        public int CreditosAcreditados { get; set; }
-        public int CreditosComplementarios { get; set; }
+        private string NumeroControl;
+        private string Nombre;
+        private string FechaNacimiento;
+        private string FechaIngreso;
+        private decimal Promedio;
+        private string CodigoCarrera;
+        private int CreditosAcreditados;
+        private int CreditosComplementarios;
 
         public Estudiante(string numeroControl, string nombre, string fechaNacimiento, string fechaIngreso, decimal promedio, string codigoCarrera, int creditosAcreditados, int creditosComplementarios)
         {
@@ -29,9 +29,36 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             CreditosComplementarios = creditosComplementarios;
         }
 
-        public Estudiante()
-        {
+        private string getNumeroControl(){
+            return this.NumeroControl;
+        }
 
+        private string getNombre(){
+            return this.Nombre;
+        }
+
+        private string getFechaNacimiento(){
+            return this.FechaNacimiento;
+        }
+
+        private string getFechaIngreso(){
+            return this.FechaIngreso;
+        }
+
+        private decimal getPromedio(){
+            return this.Promedio;
+        }
+
+        private string getCodigoCarrera(){
+            return this.CodigoCarrera;
+        }
+
+        private int getCreditosAcreditados(){
+            return this.CreditosAcreditados;
+        }
+
+        private int getCreditosComplementarios(){
+            return this.CreditosComplementarios;
         }
     }
 }

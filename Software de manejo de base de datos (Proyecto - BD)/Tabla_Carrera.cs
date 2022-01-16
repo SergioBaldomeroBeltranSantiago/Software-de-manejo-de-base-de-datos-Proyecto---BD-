@@ -8,9 +8,9 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
 {
     public class Carrera
     {
-        public string CodigoCarrera { get; set; }
-        public string NombreCarrera { get; set; }
-        public int CreditosTotales { get; set; }
+        private string CodigoCarrera;
+        private string NombreCarrera;
+        private int CreditosTotales;
 
         public Carrera(string codigoCarrera, string nombreCarrera, int creditosTotales)
         {
@@ -19,8 +19,16 @@ namespace Software_de_manejo_de_base_de_datos__Proyecto___BD_
             CreditosTotales = creditosTotales;
         }
 
-        public Carrera()
-        {
+        private string getCarrera(){
+            return this.CodigoCarrera;
+        }
+
+        private string getNombreCarrera(){
+            return this.NombreCarrera;
+        }
+
+        private int getCreditosTotales(){
+            return this.CreditosTotales;
         }
     }
 }
